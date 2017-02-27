@@ -1,0 +1,325 @@
+﻿!setname 0x1 Allié Justice
+!setname 0x2 Genex
+!setname 0x1002 Genex-R
+!setname 0x2002 Genex (Allié)
+!setname 0x4 Amazoness
+!setname 0x5 Force Arcane
+!setname 0x6 Monde Ténébreux
+!setname 0x7 Rouages Ancients
+!setname 0x8 HEROS
+!setname 0x3008 HEROS Elém.
+!setname 0x6008 HEROS du Mal
+!setname 0xc008 HEROS de la Destinée
+!setname 0x5008 HEROS Vision
+!setname 0xa008 HEROS Masqué
+!setname 0x9 Neos
+!setname 0xa Colonie du Mal
+!setname 0x100a Colonie de Chrome
+!setname 0xb Enfernité
+!setname 0xc Alien
+!setname 0xd Sabre
+!setname 0x100d Sabre X
+!setname 0x300d Sabre XX
+!setname 0xe Electro-
+!setname 0xf Ojama
+!setname 0x10 Gusto
+!setname 0x11 Karakuri
+!setname 0x12 Grenouille
+!setname 0x13 Meklord
+!setname 0x3013 Meklord (Empereur)
+!setname 0x6013 Meklord (Armée)
+!setname 0x15 B.E.S.
+!setname 0x16 Roid
+!setname 0x1016 Vehicroid
+!setname 0x2016 Vitesseroid
+!setname 0x17 Synchronique
+!setname 0x1017 Synchron
+!setname 0x2017 Dragon Synchro
+!setname 0x18 Nuagien
+!setname 0x19 Bête Gladiateur
+!setname 0x1a Scorpion Noir
+!setname 0x1b Bête Fantôme
+!setname 0x1d Koa'ki Meiru
+!setname 0x1e Chrysalis
+!setname 0x1f Néo-Spacien
+!setname 0x20 Shien
+!setname 0x21 Terre Immortel
+!setname 0x22 Préhistorique
+!setname 0x23 Maléfique
+!setname 0x24 Ferraille
+!setname 0x25 Chaine de Fer
+!setname 0x26 Morphtronique
+!setname 0x27 T.G.
+!setname 0x28 Homme-batterie
+!setname 0x29 Dragunité
+!setname 0x2a Naturia
+!setname 0x2b Ninja
+!setname 0x102b Ninja Armure
+!setname 0x2c Cloche de Feu
+!setname 0x2e Prot. de Tombeau
+!setname 0x2f Barrière Glace
+!setname 0x30 Vylon
+!setname 0x31 Dame Fortune
+!setname 0x32 Volcanique
+!setname 0x33 Aile Noire
+!setname 0x1033 Aile Noire (Assaut)
+!setname 0x34 Cristal
+!setname 0x1034 Bête Cristalline
+!setname 0x2034 Arc-en-Ciel
+!setname 0x93 Cyber
+!setname 0x94 Cybernetique
+!setname 0x1093 Cyber Dragon
+!setname 0x2093 Ange Cyber
+!setname 0x103 Cyber Dragon Lié
+!setname 0x35 Mythologique
+!setname 0x1035 Mythologique (Le)
+!setname 0x36 Méchabot
+!setname 0x37 Vallée de Brume
+!setname 0x38 Seigneur Lumière
+!setname 0x39 Laval
+!setname 0x3a Gishki
+!setname 0x3b Yeux Rouges
+!setname 0x104 Yeux Rouges (Fusions)
+!setname 0x3c Reptilia
+!setname 0x3d Six Samourai
+!setname 0x3e Ver
+!setname 0x3f Majestueux
+!setname 0x40 L'Interdit
+!setname 0x41 LV
+!setname 0x42 Nordique
+!setname 0x3042 Nordique (Ascendant)
+!setname 0x6042 Nordique (Bête)
+!setname 0xa042 Nordique (Alfe)
+!setname 0x5042 Nordique (Relique)
+!setname 0x43 Robot
+!setname 0x44 Agent
+!setname 0x45 Archdémon
+!setname 0x1045 Dragon Rouge Archdémon
+!setname 0x46 Polymérisation/Fusion
+!setname 0x47 Gemmes-
+!setname 0x1047 Chevalier-Gemmes
+!setname 0x48 Numéro
+!setname 0x49 Chasse-Ciel
+!setname 0x4a Seigneur du Temps
+!setname 0x4b Ases
+!setname 0x4c Trappe
+!setname 0x4e Evol
+!setname 0x304e Evoltile
+!setname 0x504e Evolzar
+!setname 0x604e Evolsaur
+!setname 0x4f Buster
+!setname 0x104f /Mode Assaut
+!setname 0x50 Venom
+!setname 0x51 Gadget
+!setname 0x52 Gardien
+!setname 0x53 Constellée
+!setname 0x54 Gagaga
+!setname 0x55 Photon
+!setname 0x56 Inzektor
+!setname 0x57 Diapason
+!setname 0x58 Automate
+!setname 0x59 Gogogo
+!setname 0x5a Pingouin
+!setname 0x5b Prisomate
+!setname 0x5c Sphinx
+!setname 0x60 Epée de Bamboo
+!setname 0x61 Art Ninjitsu
+!setname 0x62 Toon
+!setname 0x63 Réacteur
+!setname 0x64 Harpie
+!setname 0x65 Infestation
+!setname 0x66 Guerrier
+!setname 0x1066 Guerrier Symphonique
+!setname 0x2066 Guerrier Magnetique
+!setname 0x67 Fer
+!setname 0x68 Etain
+!setname 0x69 Hiératique
+!setname 0x6a Espillon
+!setname 0x6b Bounzer
+!setname 0x6c Rayon Lumineux
+!setname 0x6d Génie de
+!setname 0x306d Dragon Divin
+!setname 0x606d Démon Jinn des Rituels
+!setname 0x6e Prophécie
+!setname 0x106e Livre de Magie
+!setname 0x6f Heroique
+!setname 0x106f Héroique (Challenger)
+!setname 0x70 Chronomale
+!setname 0x71 Magidolce
+!setname 0x72 Geargia
+!setname 0x1072 Geargiano
+!setname 0x73 Xyz
+!setname 0x74 Sirènemure
+!setname 0x75 Abyss-
+!setname 0x76 Bête Héraldique
+!setname 0x77 Atlantide
+!setname 0x78 Agile
+!setname 0x79 Poing de Feu
+!setname 0x7a Chevalier Noble Infâme
+!setname 0x107a Chevalier Noble
+!setname 0x207a Armes Nobles
+!setname 0x7b Galactiques
+!setname 0x107b Yeux Galactiques
+!setname 0x307b Yeux Galactiques (Tachyon)
+!setname 0x7c Formation Feu
+!setname 0x7d Chimérique
+!setname 0x107d Chimérique (Flammes)
+!setname 0x7e ZW
+!setname 0x7f Utopie - Hope
+!setname 0x107f Utopie
+!setname 0x80 Poussièron
+!setname 0x81 Roi du Feu
+!setname 0x1081 Roi du Feu (Avatar)
+!setname 0x82 Dododo
+!setname 0x100 Synchronique (Synchros)
+!setname 0x101 Synchro Fusions
+!setname 0x102 HEROS du Mal (Fusions)
+!setname 0x83 Poupée Truquée
+!setname 0x101b Bête Fantôme Méca
+!setname 0x84 Boxeur Indomp.
+!setname 0x1073 CXyz
+!setname 0x1048 Numéro C
+!setname 0x85 Super Défense
+!setname 0x86 Séraphin Etoile
+!setname 0x87 Horreur de l'Ombre
+!setname 0x88 Bujin
+!setname 0x8a Fascinating
+!setname 0x108a Traptrix
+!setname 0x89 Trou
+!setname 0x8b Malicevore
+!setname 0x8d Fantôruse
+!setname 0x8e Vampire
+!setname 0x8f Zubaba
+!setname 0x90 Sylvan
+!setname 0x91 Vallée Mortuaire
+!setname 0x92 Héraldique
+!setname 0x95 Magie-Rg-Plus
+!setname 0x96 Poissonborg
+!setname 0x97 Artéfact
+!setname 0x98 Magicien
+!setname 0x99 Yeux Impairs
+!setname 0x9a Samourai Supralourd
+!setname 0x109a Ame Superheavy Samurai
+!setname 0x9b Musique
+!setname 0x109b Maestra Musique
+!setname 0x9c tellchavalier
+!setname 0x109c Satellchevalier
+!setname 0x9d Marionnette
+!setname 0x109d Marionnette El
+!setname 0x9e Yang Zing
+!setname 0x9f Potartiste
+!setname 0xa0 Chevalier Légendaire
+!setname 0xa1 Dragon Légendaire
+!setname 0x10a2 Magicien Sombre
+!setname 0x20a2 Magicienne des
+!setname 0x30a2 Magicienne des T.
+!setname 0xa3 Poussière d'Etoiles
+!setname 0xa4 Kuriboh
+!setname 0x10a4 Kuriboh Ailé
+!setname 0xa5 Changement
+!setname 0xa6 Sprout
+!setname 0xa7 Artorigus
+!setname 0xa8 Laundsallyn
+!setname 0xa9 Peluchimal
+!setname 0x10aa Apoqliphort
+!setname 0xaa Qli
+!setname 0xab Robobureau
+!setname 0xac Gobelin
+!setname 0xad Frourreur
+!setname 0xae Contrat Tenèbres
+!setname 0xaf D/D
+!setname 0x10af D/D/D
+!setname 0xb0 Gottoms
+!setname 0xb1 Abysses Ardents
+!setname 0xb2 U.A.
+!setname 0xb3 Yosenju
+!setname 0xb4 Nékroz
+!setname 0xb5 Bête Spirituelle
+!setname 0x10b5 Dmpt Bête Spirituelle
+!setname 0x20b5 Bête Spirituelle
+!setname 0x40b5 Bête Spirituelle Ulti.
+!setname 0xb6 Outer God
+!setname 0xb7 Elder God
+!setname 0xb8 Great Old One
+!setname 0xb9 Accélérateur Flammes
+!setname 0xba Raidraptor
+!setname 0xbb Infernoid
+!setname 0xbc Jinzo
+!setname 0xbd Gaia Chevalier Imp.
+!setname 0xbe Monarque
+!setname 0xbf Charmeuse
+!setname 0xc0 Familier Possédé
+!setname 0xc1 Structure-PSY
+!setname 0xc2 Electromécanique
+!setname 0xc3 Lutin
+!setname 0xc4 Zefra
+!setname 0xc5 Void
+!setname 0xc6 Mageartiste
+!setname 0xc7 Dracossassin
+!setname 0xc8 Chevaliardent
+!setname 0xc9 Arômage
+!setname 0xca Guerrier Eveillé
+!setname 0xcb Ether
+!setname 0xcc Pr. de la Préd.
+!setname 0xcd Aquactrice
+!setname 0xce Aquarium
+!setname 0xcf Chaos
+!setname 0x10cf Soldat Lustre Noir
+!setname 0xd0 Majesspectre
+!setname 0xd1 Berceau-Gris
+!setname 0xd2 Kozmo
+!setname 0xd3 Kaiju
+!setname 0xd4 Paléozoïque
+!setname 0xd5 Dante
+!setname 0xd6 Epée Destructrice
+!setname 0xd7 Buster Blader
+!setname 0xd8 Dinobrume
+!setname 0xd9 Shiranui
+!setname 0xda Dracosseigneur
+!setname 0xdb Chevaliers Fantômes
+!setname 0x10db Chevaliers Fantômes
+!setname 0xdc Super Quant
+!setname 0x10dc Super Quantique
+!setname 0x20dc Super Quantique (Bête Méca)
+!setname 0xdd Yeux Bleus
+!setname 0xde Exodia
+!setname 0xdf Clair de Lune
+!setname 0xe0 Amorphage
+!setname 0xe1 Métalphose
+!setname 0xe2 Triamid
+!setname 0xe3 Cubique
+!setname 0xe4 Celt
+!setname 0xe5 Cipher
+!setname 0xe6 Fleur Cardian
+!setname 0xe7 Silent Swordsman
+!setname 0xe8 Magicien Silenc.
+!setname 0xe9 Guerrier Magnétique (Magna)
+!setname 0xea Crystron
+!setname 0xeb Chimicréa
+!setname 0xec Abysses
+!setname 0x10ec Acteur des Abysses
+!setname 0x20ec Script ds Abysses
+!setname 0xef Ange Déchu
+!setname 0xed Subterreur
+!setname 0x10ed Subterreur Béhémoth
+!setname 0xee ESPIRALE
+!setname 0x10ee MATOS ESPIRALE
+!setname 0x20ee MISSION ESPIRALE
+!setname 0xf0 Sorcièrevent
+!setname 0xf1 Zoodiaque
+!setname 0xf2 Pendulum
+!setname 0x10f2 Dragon Pendule
+!setname 0x20f2 Pendulumgraph
+!setname 0xf3 Prédaplante
+!setname 0x10f3 Prédateur
+!setname 0xf4 Eidolon Beast
+!setname 0xf5 Gandora
+!setname 0xf6 Skyscraper
+!setname 0x1046 Dragon Fusion
+!setname 0x2073 Dragon Xyz
+!setname 0xf7 Lyrical Luscinia
+!setname 0xf8 Supreme King
+!setname 0x10f8 Supreme King Gate
+!setname 0x20f8 Supreme King Servant Dragon
+!setname 0xf9 Roi Véritable
+!setname 0xfa Mythic Radiance Dragon
