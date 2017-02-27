@@ -38,7 +38,7 @@ namespace DiscordCardBot
             ClientConfig.LogHandler = OnLogMessage;            
 
             Client = new DiscordClient(ClientConfig).UsingCommands(x => {
-                x.PrefixChar = '!';
+                x.PrefixChar = '+';
                 x.AllowMentionPrefix = true;
                 x.HelpMode = HelpMode.Public;
                 x.ErrorHandler = OnCommandError;
