@@ -72,7 +72,10 @@ namespace DiscordCardBot
             }
             else
             {
-                await e.Channel.SendFile(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg"));
+                if (File.Exists(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg")))
+                    await e.Channel.SendFile(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg"));
+                else
+                    await e.Channel.SendFile(Path.Combine(Program.path, "pics", "unknown.jpg"));
                 await e.Channel.SendMessage(returnCard.ToString());
             }
         };
@@ -84,7 +87,6 @@ namespace DiscordCardBot
         };
 
         public static Func<CommandEventArgs, Task> StartPoll() => async e => {
-            if (!Bot.Config.AllowedChannelsId.Contains(e.Channel.Id)) { return; }
             if (Bot.IsPolling)
             {
                 await
@@ -99,7 +101,6 @@ namespace DiscordCardBot
             await e.Channel.SendMessage($"Question:\n{Bot.CurrentPoll.Question}");
         };
         public static Func<CommandEventArgs, Task> StopPoll() => async e => {
-            if (!Bot.Config.AllowedChannelsId.Contains(e.Channel.Id) || !Bot.IsPolling) { return; }
             if (e.User != Bot.CurrentPoll.Creator)
             {
                 await
@@ -117,7 +118,6 @@ namespace DiscordCardBot
             }
         };
         public static Func<CommandEventArgs, Task> Vote() => async e => {
-            if (!Bot.Config.AllowedChannelsId.Contains(e.Channel.Id)) { return; }
             if (!Bot.IsPolling)
             {
                 await
@@ -153,6 +153,22 @@ namespace DiscordCardBot
         public static Func<CommandEventArgs, Task> SendInviteUrl() => async e => {
             await e.Channel.SendMessage("Cliquez sur " + "https://discordapp.com/oauth2/authorize?client_id=" + Bot.Config.ClientID.ToString() + "&scope=bot&permissions=0 pour que Crow rejoigne votre serveur !");
         };
+
+        public static Func<CommandEventArgs, Task> AddUserAllowed() => async e => 
+        {
+            ulong id = Convert.ToUInt64(e.Args[0]);
+            Bot.Config.AllowedUserId.Add(id);
+            Bot.SaveConfig();
+            await e.Channel.SendMessage($"Opération sur les permissions effectuées.");
+        };
+        public static Func<CommandEventArgs, Task> RemoveUserAllowed() => async e =>
+        {
+            ulong id = Convert.ToUInt64(e.Args[0]);
+            Bot.Config.AllowedUserId.Remove(id);
+            Bot.SaveConfig();
+            await e.Channel.SendMessage($"Opération sur les permissions effectuées.");
+        };
+
 
         #endregion Public Methods
     }

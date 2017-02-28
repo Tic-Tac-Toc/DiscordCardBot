@@ -17,8 +17,8 @@ namespace DiscordCardBot
         [JsonProperty("ownerID")]
         public ulong OwnerID { get; set; }
 
-        [JsonProperty("allowedChannelsId")]
-        public List<ulong> AllowedChannelsId { get; set; }
+        [JsonProperty("allowedUserId")]
+        public List<ulong> AllowedUserId { get; set; }
 
         #endregion Public Fields + Properties
     }

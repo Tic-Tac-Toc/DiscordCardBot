@@ -48,16 +48,21 @@ namespace DiscordCardBot
         }
         private void LoadConfig()
         {
-            Config = new Configuration();
-            Config.BotToken = "Mjg1NzY1MDY5OTE1MDI5NTA0.C5W7Ag.pWddyYYcnhgxMT5D8ZSUysw-QWc";
-            Config.ClientID = 285765069915029504;
-            Config.OwnerID = 210137207317594123;
-            Config.AllowedChannelsId = new List<ulong>();
-            Config.AllowedChannelsId.Add(285770178644410368);
-            Config.AllowedChannelsId.Add(206090421036646401);
-            Config.AllowedChannelsId.Add(206089416589049856);
+            if (File.Exists("config.json"))
+                Config = JsonConvert.DeserializeObject<Configuration>(File.ReadAllText("config.json"));
+            else
+            {
+                Config = new Configuration();
+                Config.BotToken = "Mjg1NzY1MDY5OTE1MDI5NTA0.C5W7Ag.pWddyYYcnhgxMT5D8ZSUysw-QWc";
+                Config.ClientID = 285765069915029504;
+                Config.OwnerID = 210137207317594123;
+                Config.AllowedUserId = new List<ulong>();
+                Config.AllowedUserId.Add(Config.OwnerID);
+            }
+            if (!Config.AllowedUserId.Contains(Config.OwnerID))
+                Config.AllowedUserId.Add(Config.OwnerID);
         }
-        private void SaveConfig()
+        public void SaveConfig()
         {
             File.WriteAllText("config.json", JsonConvert.SerializeObject(Config));
         }
@@ -134,7 +139,7 @@ namespace DiscordCardBot
             Client.GetService<CommandService>().CreateGroup
                    ("poll", cgb => {
                        cgb.CreateCommand("start").
-                           AddCheck((command, user, arg3) => user.Id == Config.OwnerID).
+                           AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
                            Description("Démarre un sondage.").
                            Parameter("Question du sondage", ParameterType.Unparsed).
                            Do(Commands.StartPoll());
@@ -145,9 +150,24 @@ namespace DiscordCardBot
                            Do(Commands.Vote());
 
                        cgb.CreateCommand("stop").
-                           AddCheck((command, user, arg3) => user.Id == Config.OwnerID).
+                           AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
                            Description("Arrête le sondage actuel.").
                            Do(Commands.StopPoll());
+                   });
+
+            Client.GetService<CommandService>().CreateGroup
+                   ("permission", cgb => {
+                       cgb.CreateCommand("add").
+                           AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
+                           Description("Permet de donner la permission d'utiliser des commandes du bot.").
+                           Parameter("Id de l'utilisateur", ParameterType.Unparsed).
+                           Do(Commands.AddUserAllowed());
+
+                       cgb.CreateCommand("remove").
+                           AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
+                           Description("Permet de retirer la permission d'utiliser des commandes du bot.").
+                           Parameter("Id de l'utilisateur", ParameterType.Unparsed).
+                           Do(Commands.RemoveUserAllowed());
                    });
         }
 
