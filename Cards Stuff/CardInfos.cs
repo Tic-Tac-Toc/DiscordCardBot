@@ -83,9 +83,7 @@ namespace DiscordCardBot
             type = type.Remove(type.Length - 1);
             string race = ((CardRace)Race).ToString();
             string level = typeArray.Contains(CardType.Xyz) ? "Rang" : "Niveau";
-            string setname = "";
-            if (CardManager.SetCodes.ContainsKey(Convert.ToInt32(SetCode)))
-                setname = CardManager.SetCodes[Convert.ToInt32(SetCode)];
+            string setname = GetSetName();
             string ot = ((CardFormat)Ot).ToString();
             
             string toReturn = "**`Informations:`**" + Environment.NewLine;
@@ -106,6 +104,26 @@ namespace DiscordCardBot
             toReturn += Description + "```";
 
             return toReturn;
+        }
+
+        public string GetSetName()
+        {
+            string setnames = "";
+            long setcode = SetCode & 0xffff;
+            if (CardManager.SetCodes.ContainsKey((int)setcode))
+                setnames += CardManager.SetCodes[(int)setcode] + "/";
+            else
+                setnames = "Aucun ";
+            setcode = setcode >> 16 & 0xffff;
+            if (CardManager.SetCodes.ContainsKey((int)setcode))
+                setnames += CardManager.SetCodes[(int)setcode] + "/";
+            setcode = setcode >> 32 & 0xffff;
+            if (CardManager.SetCodes.ContainsKey((int)setcode))
+                setnames += CardManager.SetCodes[(int)setcode] + "/";
+            setcode = setcode >> 48 & 0xffff;
+            if (CardManager.SetCodes.ContainsKey((int)setcode))
+                setnames += CardManager.SetCodes[(int)setcode] + "/";
+            return setnames.Remove(setnames.Length - 1); 
         }
 
         public object Clone()
