@@ -40,7 +40,7 @@ namespace DiscordCardBot.Cards_Stuff
                 texts = SQLiteCommands.LoadText(connection);
                 connection.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 connection.Close();
                 return false;
