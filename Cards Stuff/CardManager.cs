@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Mono.Data.Sqlite;
+using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static DiscordCardBot.Cards_Stuff.SQLCommands;
 
 namespace DiscordCardBot.Cards_Stuff
@@ -32,7 +29,7 @@ namespace DiscordCardBot.Cards_Stuff
                 CardData.Clear();
             }
 
-            SQLiteConnection connection = new SQLiteConnection("Data Source=" + dir);
+            SqliteConnection connection = new SqliteConnection("Data Source=" + dir);
             List<string[]> datas = new List<string[]>();
             List<string[]> texts = new List<string[]>();
 

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Mono.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +10,9 @@ namespace DiscordCardBot.Cards_Stuff
 {
     public static class DatabaseHelper
     {
-        public static SQLiteCommand CreateCommand(string statement, SQLiteConnection connection)
+        public static SqliteCommand CreateCommand(string statement, SqliteConnection connection)
         {
-            return new SQLiteCommand
+            return new SqliteCommand
             {
                 CommandText = statement,
                 CommandType = CommandType.Text,
@@ -20,7 +20,7 @@ namespace DiscordCardBot.Cards_Stuff
             };
         }
 
-        public static bool ExecuteNonCommand(SQLiteCommand command)
+        public static bool ExecuteNonCommand(SqliteCommand command)
         {
             try
             {
@@ -34,12 +34,12 @@ namespace DiscordCardBot.Cards_Stuff
             }
         }
 
-        public static List<string[]> ExecuteStringCommand(SQLiteCommand command, int columncount)
+        public static List<string[]> ExecuteStringCommand(SqliteCommand command, int columncount)
         {
             try
             {
                 var values = new List<string[]>();
-                SQLiteDataReader reader = command.ExecuteReader();
+                SqliteDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     var row = new List<string>();
@@ -60,7 +60,7 @@ namespace DiscordCardBot.Cards_Stuff
             }
         }
 
-        public static int ExecuteIntCommand(SQLiteCommand command)
+        public static int ExecuteIntCommand(SqliteCommand command)
         {
             try
             {
