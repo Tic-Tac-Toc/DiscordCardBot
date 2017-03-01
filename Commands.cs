@@ -22,12 +22,14 @@ namespace DiscordCardBot
 
         #region Public Methods
 
-        public static Func<CommandEventArgs, Task> AboutUs() => async e => {
+        public static Func<CommandEventArgs, Task> AboutUs() => async e =>
+        {
             await
                 e.Channel.SendMessage("https://github.com/Tic-Tac-Toc/");
         };
 
-        public static Func<CommandEventArgs, Task> LookupCard() => async e => {
+        public static Func<CommandEventArgs, Task> LookupCard() => async e =>
+        {
             CardInfos returnCard = null;
             var info = e.Args[0];
 
@@ -45,10 +47,13 @@ namespace DiscordCardBot
                     {
                         string msg = "**Il y a plusieurs cartes qui correspondent à votre recherche.**";
                         msg += Environment.NewLine + Environment.NewLine + "`";
-                        string[] lists = Tools.ArrayToString(",", results);
-                        msg += "Monstres: " + lists[0] + Environment.NewLine + Environment.NewLine;
-                        msg += "Magies: " + lists[1] + Environment.NewLine + Environment.NewLine;
-                        msg += "Pièges: " + lists[2] + Environment.NewLine + Environment.NewLine;
+                        string[] lists = Tools.ArrayCardsToString(",", results);
+                        if (lists[0] != "")
+                            msg += "Monstres: " + lists[0] + Environment.NewLine + Environment.NewLine;
+                        if (lists[1] != "")
+                            msg += "Magies: " + lists[1] + Environment.NewLine + Environment.NewLine;
+                        if (lists[2] != "")
+                            msg += "Pièges: " + lists[2] + Environment.NewLine + Environment.NewLine;
                         msg += "`";
                         await e.Channel.SendMessage(msg);
                         return;
@@ -68,7 +73,7 @@ namespace DiscordCardBot
             {
                 await
                     e.Channel.SendMessage
-                        ($"Je ne trouve aucune information pour la carte :" + info + ".");
+                        ($"Je ne trouve aucune information pour la carte: " + info + ".");
             }
             else
             {
@@ -79,13 +84,67 @@ namespace DiscordCardBot
                 await e.Channel.SendMessage(returnCard.ToString());
             }
         };
+        public static Func<CommandEventArgs, Task> LookupSetname() => async e =>
+        {
+            List<CardInfos> returnCards = new List<CardInfos>();
+            var info = e.Args[0];
 
-        public static Func<CommandEventArgs, Task> Shutdown() => async e => {
+            List<CardInfos> results = CardManager.GetCardBySetname(info.ToString());
+            if (results.Count > 0)
+            {
+                if (results.Count > 1)
+                {
+                    string msg = "**Il y a plusieurs cartes qui correspondent à votre recherche.**";
+                    msg += Environment.NewLine + Environment.NewLine;
+                    await e.Channel.SendMessage(msg);
+                    msg = "";
+                    string[] lists = Tools.ArrayCardsToString(",", results);
+                    msg += "Monstres: " + lists[0];
+                    await e.Channel.SendMessage("`" + msg + "`");
+                    msg = "";
+                    msg += "Magies: " + lists[1];
+                    await e.Channel.SendMessage("`" + msg + "`");
+                    msg = "";
+                    msg += "`Pièges: " + lists[2] + Environment.NewLine + Environment.NewLine + "`";
+                    msg += Environment.NewLine + Environment.NewLine + "**`Un exemple de carte de l'archétype:`**" + Environment.NewLine;
+                    await e.Channel.SendMessage(msg);
+
+                    Random rd = new Random();
+                    CardInfos returnCard = results[rd.Next(results.Count)];
+                    if (File.Exists(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg")))
+                        await e.Channel.SendFile(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg"));
+                    else
+                        await e.Channel.SendFile(Path.Combine(Program.path, "pics", "unknown.jpg"));
+                    await e.Channel.SendMessage(returnCard.ToString());
+                    return;
+                }
+            }
+            else
+            {
+                await
+                    e.Channel.SendMessage
+                        ($"Je ne trouve aucune information pour l'archétype: " + info + ".");
+
+                await
+                    e.User.SendMessage
+                        ($"Liste des archétypes que vous pourriez rechercher:");
+                await
+                    e.User.SendMessage
+                        ($"-" + Tools.ArrayToString(Environment.NewLine + "-", CardManager.SetCodesString[info[0]]));
+
+
+            }
+        };
+
+        public static Func<CommandEventArgs, Task> Shutdown() => async e =>
+        {
             await e.Channel.SendMessage("Au revoir à tous.");
             await Task.Delay(2500);
             await Bot.Client.Disconnect();
         };
 
+        /*
+        #region Poll
         public static Func<CommandEventArgs, Task> StartPoll() => async e => {
             if (Bot.IsPolling)
             {
@@ -149,12 +208,14 @@ namespace DiscordCardBot
                          $"Abstain: {Bot.CurrentPoll.GetAbstainCount()}");
             }
         };
+        #endregion */
 
-        public static Func<CommandEventArgs, Task> SendInviteUrl() => async e => {
+        public static Func<CommandEventArgs, Task> SendInviteUrl() => async e =>
+        {
             await e.Channel.SendMessage("Cliquez sur " + "https://discordapp.com/oauth2/authorize?client_id=" + Bot.Config.ClientID.ToString() + "&scope=bot&permissions=0 pour que Crow rejoigne votre serveur !");
         };
 
-        public static Func<CommandEventArgs, Task> AddUserAllowed() => async e => 
+        public static Func<CommandEventArgs, Task> AddUserAllowed() => async e =>
         {
             ulong id = Convert.ToUInt64(e.Args[0]);
             Bot.Config.AllowedUserId.Add(id);

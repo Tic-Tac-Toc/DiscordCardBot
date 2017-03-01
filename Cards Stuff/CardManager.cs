@@ -10,6 +10,7 @@ namespace DiscordCardBot.Cards_Stuff
     {
         private static Dictionary<int, CardInfos> CardData = new Dictionary<int, CardInfos>();
         public static Dictionary<int, string> SetCodes = new Dictionary<int, string>();
+        public static Dictionary<char, List<string>> SetCodesString = new Dictionary<char, List<string>>();
 
         private static void RenameKey<TKey, TValue>(this IDictionary<TKey, TValue> dic,
                               TKey fromKey, TKey toKey)
@@ -64,6 +65,7 @@ namespace DiscordCardBot.Cards_Stuff
 
             if (File.Exists("setname.txt"))
                 LoadSetCodesFromFile(CreateFileStreamFromString(File.ReadAllText("setname.txt")));
+            SetCodesStringInit();
 
             return true;
         }
@@ -127,6 +129,46 @@ namespace DiscordCardBot.Cards_Stuff
                         cards.Add(v.Value);
                 }
             return cards;
+        }
+        public static List<CardInfos> GetCardBySetname(string name)
+        {
+            List<CardInfos> cards = new List<CardInfos>();
+            int id = GetSetnameId(name);
+            if (id == -1)
+                return cards;
+
+            foreach (var v in CardData)
+                if (v.Value.BelongSetname(id))
+                    cards.Add(v.Value);
+            return cards;
+        }
+        public static int GetSetnameId(string name)
+        {
+            int id = -1;
+            foreach (var v in SetCodes)
+                if (v.Value == name)
+                    return v.Key;
+            return id;
+        }
+        private static void SetCodesStringInit()
+        {
+            SetCodesString = new Dictionary<char, List<string>>();
+            foreach (var v in SetCodes)
+            {
+                char startLetter = v.Value[0];
+                if (SetCodesString.ContainsKey(startLetter))
+                {
+                    List<string> list = SetCodesString[startLetter];
+                    list.Add(v.Value);
+                    SetCodesString[startLetter] = list;
+                }
+                else
+                {
+                    List<string> list = new List<string>();
+                    list.Add(v.Value);
+                    SetCodesString.Add(startLetter, list);
+                }
+            }
         }
 
         private static Stream CreateFileStreamFromString(string file)

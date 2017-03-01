@@ -22,7 +22,7 @@ namespace DiscordCardBot
             }
         }
 
-        public static string[] ArrayToString(string separator, IList array)
+        public static string[] ArrayCardsToString(string separator, IList array)
         {
             string monster = "";
             string spell = "";
@@ -41,6 +41,16 @@ namespace DiscordCardBot
             }
 
             return new string[] { monster, spell, trap };   
+        }
+
+        public static string ArrayToString(string separator, IList array)
+        {
+            string toReturn = "";
+
+            foreach (var v in array)
+                toReturn += v + separator;
+
+            return toReturn;
         }
     }
 }

@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Discord;
 
 namespace DiscordCardBot
 {
-    #region Using
-
-    using System.Collections.Generic;
-    using System.Linq;
-    using Discord;
-
-    #endregion
-
     public enum VoteResult
     {
         Abstain,

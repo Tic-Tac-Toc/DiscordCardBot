@@ -123,6 +123,13 @@ namespace DiscordCardBot
                    Do(Commands.LookupCard());
 
             Client.GetService<CommandService>().
+                   CreateCommand("arch").
+                   Alias("ac", "sc", "sn").
+                   Description("Obtient des informations sur un archétype Yu-Gi-Oh!").
+                   Parameter("Nom de l'archétype", ParameterType.Unparsed).
+                   Do(Commands.LookupSetname());
+
+            Client.GetService<CommandService>().
                    CreateCommand("inviteurl").
                    Alias("invite", "i").
                    Description($"Donne le lien permettant à {Client.Config.AppName} de rejoindre votre serveur.").
@@ -136,7 +143,7 @@ namespace DiscordCardBot
                    Description("Ferme la console gérant le bot.").
                    Do(Commands.Shutdown());
 
-            Client.GetService<CommandService>().CreateGroup
+          /*  Client.GetService<CommandService>().CreateGroup
                    ("poll", cgb => {
                        cgb.CreateCommand("start").
                            AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
@@ -152,8 +159,8 @@ namespace DiscordCardBot
                        cgb.CreateCommand("stop").
                            AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
                            Description("Arrête le sondage actuel.").
-                           Do(Commands.StopPoll());
-                   });
+                           Do(Commands.StopPoll()); 
+                   }); */
 
             Client.GetService<CommandService>().CreateGroup
                    ("permission", cgb => {

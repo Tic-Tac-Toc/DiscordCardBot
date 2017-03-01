@@ -126,6 +126,11 @@ namespace DiscordCardBot
             return setnames.Remove(setnames.Length - 1); 
         }
 
+        public bool BelongSetname(int setcode)
+        {
+            return ((int)SetCode & 0xffff) == setcode || ((int)SetCode & 0xffff >> 16 & 0xffff) == setcode || ((int)SetCode & 0xffff >> 16 & 0xffff >> 32 & 0xffff) == setcode || ((int)SetCode & 0xffff >> 16 & 0xffff >> 32 & 0xffff >> 48 & 0xffff) == setcode;
+        }
+
         public object Clone()
         {
             return MemberwiseClone();
