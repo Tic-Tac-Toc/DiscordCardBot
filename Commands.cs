@@ -141,74 +141,7 @@ namespace DiscordCardBot
             await e.Channel.SendMessage("Au revoir à tous.");
             await Task.Delay(2500);
             await Bot.Client.Disconnect();
-        };
-
-        /*
-        #region Poll
-        public static Func<CommandEventArgs, Task> StartPoll() => async e => {
-            if (Bot.IsPolling)
-            {
-                await
-                    e.Channel.SendMessage
-                        ("Je ne peux gérer qu'un sondage à la fois, veuillez clore l'actuel.");
-                return;
-            }
-            Bot.CurrentPoll = new Poll(e.User, e.Args[0], e.Channel.Users.Select(x => x.Id));
-            Bot.IsPolling = true;
-
-            await e.Channel.SendMessage($"{e.Server.EveryoneRole.Mention} Sondage démarré par : {Bot.CurrentPoll.Creator}");
-            await e.Channel.SendMessage($"Question:\n{Bot.CurrentPoll.Question}");
-        };
-        public static Func<CommandEventArgs, Task> StopPoll() => async e => {
-            if (e.User != Bot.CurrentPoll.Creator)
-            {
-                await
-                    e.Channel.SendMessage
-                        ($"Seul le créateur ({Bot.CurrentPoll.Creator.Name}) peut arrêter le sondage.");
-            }
-            else
-            {
-                Bot.IsPolling = false;
-                Bot.CurrentPoll = null;
-                await e.Channel.SendMessage("Sondage terminé! Résultats:\n" +
-                          $"Yes: {Bot.CurrentPoll.GetYesCount()}\n" +
-                          $"No: {Bot.CurrentPoll.GetNoCount()}\n" +
-                          $"Abstain: {Bot.CurrentPoll.GetAbstainCount()}");
-            }
-        };
-        public static Func<CommandEventArgs, Task> Vote() => async e => {
-            if (!Bot.IsPolling)
-            {
-                await
-                    e.Channel.SendMessage
-                        ("Il n'y a actuellement pas de sondage en cours.");
-            }
-            if (!Bot.CurrentPoll.UpdateVote(e.User.Id, e.Args[0]))
-            {
-                await
-                    e.Channel.SendMessage
-                        ("Vote invalide. Rappel répondez par : yes, no, or abstain!\n" +
-                        "Aliases:[yes: y, no: n, abstain: idk, a]");
-            }
-
-            if (!Bot.CurrentPoll.IsPollComplete)
-            {
-                await
-                    e.Channel.SendMessage
-                        ("Votes:\n" + "Y\tN\tA\t\n" +
-                         $"{Bot.CurrentPoll.GetYesCount()}\t" +
-                         $"{Bot.CurrentPoll.GetNoCount()}\t" +
-                         $"{Bot.CurrentPoll.GetAbstainCount()}");
-            }
-            else
-            {
-                await e.Channel.SendMessage("Sondage terminé! Résultats:\n" +
-                         $"Yes: {Bot.CurrentPoll.GetYesCount()}\n" +
-                         $"No: {Bot.CurrentPoll.GetNoCount()}\n" +
-                         $"Abstain: {Bot.CurrentPoll.GetAbstainCount()}");
-            }
-        };
-        #endregion */
+        };        
 
         public static Func<CommandEventArgs, Task> SendInviteUrl() => async e =>
         {

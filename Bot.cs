@@ -13,9 +13,6 @@ namespace DiscordCardBot
         public DiscordClient Client;
         public Configuration Config;
 
-        public Poll CurrentPoll;
-        public bool IsPolling = false;
-
         public Bot()
         {
             Config = new Configuration();
@@ -142,25 +139,6 @@ namespace DiscordCardBot
                    Alias("sd").
                    Description("Ferme la console gérant le bot.").
                    Do(Commands.Shutdown());
-
-          /*  Client.GetService<CommandService>().CreateGroup
-                   ("poll", cgb => {
-                       cgb.CreateCommand("start").
-                           AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
-                           Description("Démarre un sondage.").
-                           Parameter("Question du sondage", ParameterType.Unparsed).
-                           Do(Commands.StartPoll());
-
-                       cgb.CreateCommand("vote").
-                           Description("Permet de voter pour le sondage actuel.\n" + "Votes valides: [yes/y, no/n, abstain/idk/a].").
-                           Parameter("Vote").
-                           Do(Commands.Vote());
-
-                       cgb.CreateCommand("stop").
-                           AddCheck((command, user, arg3) => Config.AllowedUserId.Contains(user.Id)).
-                           Description("Arrête le sondage actuel.").
-                           Do(Commands.StopPoll()); 
-                   }); */
 
             Client.GetService<CommandService>().CreateGroup
                    ("permission", cgb => {
