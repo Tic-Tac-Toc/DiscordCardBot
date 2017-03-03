@@ -180,34 +180,25 @@ namespace DiscordCardBot.Cards_Stuff
             stream.Position = 0;
             return stream;
         }
-        private static bool LoadSetCodesFromFile(Stream file)
+        private static void LoadSetCodesFromFile(Stream file)
         {
-            try
+            var reader = new StreamReader(file);
+            while (!reader.EndOfStream)
             {
-                var reader = new StreamReader(file);
-                while (!reader.EndOfStream)
-                {
-                    //!setcode 0x8d Ghostrick
-                    string line = reader.ReadLine();
-                    if (line == null || !line.StartsWith("!setname")) continue;
-                    string[] parts = line.Split(' ');
-                    if (parts.Length == 1) continue;
+                //!setcode 0x8d Ghostrick
+                string line = reader.ReadLine();
+                if (line == null || !line.StartsWith("!setname")) continue;
+                string[] parts = line.Split(' ');
+                if (parts.Length == 1) continue;
 
-                    int setcode = Convert.ToInt32(parts[1], 16);
-                    string setname = line.Split(new string[] { parts[1] }, StringSplitOptions.RemoveEmptyEntries)[1].Trim();
+                int setcode = Convert.ToInt32(parts[1], 16);
+                string setname = line.Split(new string[] { parts[1] }, StringSplitOptions.RemoveEmptyEntries)[1].Trim();
 
-                    if (!SetCodes.ContainsKey(setcode))
-                        SetCodes.Add(setcode, setname);
-                    else
-                        SetCodes[setcode] = setname;
-                }
+                if (!SetCodes.ContainsKey(setcode))
+                    SetCodes.Add(setcode, setname);
+                else
+                    SetCodes[setcode] = setname;
             }
-            catch (Exception)
-            {
-                return false;
-            }
-
-            return true;
         }
     }
 }
