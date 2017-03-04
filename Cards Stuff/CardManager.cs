@@ -146,7 +146,7 @@ namespace DiscordCardBot.Cards_Stuff
         {
             int id = -1;
             foreach (var v in SetCodes)
-                if (v.Value == name)
+                if (v.Value.ToUpper() == name.ToUpper())
                     return v.Key;
             return id;
         }
@@ -155,7 +155,7 @@ namespace DiscordCardBot.Cards_Stuff
             SetCodesString = new Dictionary<char, List<string>>();
             foreach (var v in SetCodes)
             {
-                char startLetter = v.Value[0];
+                char startLetter = v.Value.ToUpper()[0];
                 if (SetCodesString.ContainsKey(startLetter))
                 {
                     List<string> list = SetCodesString[startLetter];

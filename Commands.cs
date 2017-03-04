@@ -94,6 +94,14 @@ namespace DiscordCardBot
             {
                 if (results.Count > 1)
                 {
+                    Random rd = new Random();
+                    CardInfos returnCard = results[rd.Next(results.Count)];
+                    if (File.Exists(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg")))
+                        await e.Channel.SendFile(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg"));
+                    else
+                        await e.Channel.SendFile(Path.Combine(Program.path, "pics", "unknown.jpg"));
+                    
+
                     string msg = "**Il y a plusieurs cartes qui correspondent à votre recherche.**";
                     msg += Environment.NewLine + Environment.NewLine;
                     await e.Channel.SendMessage(msg);
@@ -108,13 +116,6 @@ namespace DiscordCardBot
                     msg += "`Pièges: " + lists[2] + Environment.NewLine + Environment.NewLine + "`";
                     msg += Environment.NewLine + Environment.NewLine + "**`Un exemple de carte de l'archétype:`**" + Environment.NewLine;
                     await e.Channel.SendMessage(msg);
-
-                    Random rd = new Random();
-                    CardInfos returnCard = results[rd.Next(results.Count)];
-                    if (File.Exists(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg")))
-                        await e.Channel.SendFile(Path.Combine(Program.path, "pics", returnCard.Id + ".jpg"));
-                    else
-                        await e.Channel.SendFile(Path.Combine(Program.path, "pics", "unknown.jpg"));
                     await e.Channel.SendMessage(returnCard.ToString());
                     return;
                 }
