@@ -146,7 +146,7 @@ namespace DiscordCardBot
 
         public static Func<CommandEventArgs, Task> SendInviteUrl() => async e =>
         {
-            await e.Channel.SendMessage("Cliquez sur " + "https://discordapp.com/oauth2/authorize?client_id=" + Bot.Config.ClientID.ToString() + "&scope=bot&permissions=0 pour que Crow rejoigne votre serveur !");
+            await e.Channel.SendMessage("Cliquez sur " + "https://discordapp.com/oauth2/authorize?client_id=" + Bot.Config.ClientID.ToString() + "&scope=bot&permissions=0 pour que je rejoigne votre serveur !");
         };
 
         public static Func<CommandEventArgs, Task> AddUserAllowed() => async e =>
